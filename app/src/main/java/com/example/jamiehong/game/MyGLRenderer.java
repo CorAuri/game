@@ -29,6 +29,12 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
     public void onDrawFrame(GL10 unused) {
         // Redraw background color
         GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT);
+
+        // draw a triangle
+        mTriangle.draw();
+
+        // draw a square
+        mSquare.draw();
     }
 
     public void onSurfaceChanged(GL10 unused, int width, int height) {
