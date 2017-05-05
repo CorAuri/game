@@ -58,10 +58,10 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
         Matrix.setLookAtM(mViewMatrix, 0, 0, 0, -3, 0f, 0f, 0f, 0f, 1.0f, 0.0f);
 
         // Create a rotation transformation for the triangle
-        long time = SystemClock.uptimeMillis() % 4000L;
-        float angle = 0.090f * ((int) time);
-        Matrix.setRotateM(mRotationMatrix, 0, angle, 0, 0, 1.0f);
-        //Matrix.setRotateM(mRotationMatrix, 0, mAngle, 0, 0, -1.0f);
+        //long time = SystemClock.uptimeMillis() % 4000L;
+        //float angle = 0.090f * ((int) time);
+        //Matrix.setRotateM(mRotationMatrix, 0, angle, 0, 0, 1.0f);
+        Matrix.setRotateM(mRotationMatrix, 0, mAngle, 0, 0, -1.0f);
 
         // Calculate the projection and view transformation
         Matrix.multiplyMM(mMVPMatrix, 0, mProjectionMatrix, 0, mViewMatrix, 0);
