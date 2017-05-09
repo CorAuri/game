@@ -16,6 +16,7 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
 
     private Triangle mTriangle;
     private Square mSquare;
+    private Mountain mMountain;
 
     // mMVPMatrix is an abbreviation for "Model View Projection Matrix"
     private final float[] mMVPMatrix = new float[16];
@@ -25,6 +26,7 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
     // for rotation matrix
     private float[] mRotationMatrix = new float[16];
 
+    /*
     // for returning the angle
     public volatile float mAngle;
 
@@ -35,28 +37,27 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
     public void setAngle(float angle) {
         mAngle = angle;
     }
+    */
 
     public void onSurfaceCreated(GL10 unused, EGLConfig config) {
         // Set the background frame color
         GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
-        // initialize a triangle
-        mTriangle = new Triangle();
-
-        // initialize a square
-        mSquare = new Square();
+        // initialize a mountain
+        mMountain = new Mountain();
     }
 
     // @Override
     public void onDrawFrame(GL10 gl) {
         float[] scratch = new float[16];
-
+        
         // Redraw background color
         GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT);
 
         // Set the camera position (View matrix)
         Matrix.setLookAtM(mViewMatrix, 0, 0, 0, -3, 0f, 0f, 0f, 0f, 1.0f, 0.0f);
 
+        /*
         // Create a rotation transformation for the triangle
         //long time = SystemClock.uptimeMillis() % 4000L;
         //float angle = 0.090f * ((int) time);
@@ -79,6 +80,11 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
 
         // draw a square
         // mSquare.draw(mMVPMatrix);
+        */
+
+        Matrix.multiplyMM(scratch, 0, mMVPMatrix, 0, mProjectionMatrix, 0);
+        mMountain.draw(scratch);
+
     }
 
     @Override

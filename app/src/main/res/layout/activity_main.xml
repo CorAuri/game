@@ -6,11 +6,41 @@
     android:layout_height="match_parent"
     tools:context="com.example.jamiehong.game.MainActivity">
 
+    <!--
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+        -->
+    <!--
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/master_layout">
+        <TextView
+            android:id="@+id/title"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content" />
+        ...
+        android:text="Title"/>
+        <FrameLayout
+            android:id="@+id/scene_root"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content">
+            <include layout="@layout/a_scene" />
+        </FrameLayout>
+    </LinearLayout>
+    -->
+
+    <Button
+        android:id="@+id/start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:onClick="startGame"
+        android:text="@string/button_start"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
